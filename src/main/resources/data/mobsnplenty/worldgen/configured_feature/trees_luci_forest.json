@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "mobsnplenty:luci_checked",
+    "features": [
+      {
+        "chance": 0.02,
+        "feature": "mobsnplenty:large_luci_checked"
+      }
+    ]
+  }
+}

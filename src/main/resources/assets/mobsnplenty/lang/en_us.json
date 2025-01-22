@@ -1,5 +1,23 @@
 {
-  "itemGroup.mobsnplenty": "Example Mod Tab",
-  "block.mobsnplenty.example_block": "Example Block",
-  "item.mobsnplenty.example_item": "Example Item"
+  "biome.mobsnplenty.luci_forest": "Luci Forest",
+
+  "block.mobsnplenty.luci_planks": "Luci Planks",
+  "block.mobsnplenty.luci_log": "Luci Log",
+  "block.mobsnplenty.stripped_luci_log": "Stripped Luci Log",
+  "block.mobsnplenty.luci_wood": "Luci Wood",
+  "block.mobsnplenty.stripped_luci_wood": "Stripped Luci Wood",
+  "block.mobsnplenty.luci_leaves": "Luci Leaves",
+  "block.mobsnplenty.luci_sapling": "Luci Sapling",
+
+  "block.mobsnplenty.luci_shelf_fungi": "Luci Shelf Fungi",
+  "block.mobsnplenty.alkanet": "Alkanet",
+  "block.mobsnplenty.blue_flaurelle": "Blue Flaurelle",
+  "block.mobsnplenty.purple_flaurelle": "Purple Flaurelle",
+  "block.mobsnplenty.red_switch_grass": "Red Switchgrass",
+  "block.mobsnplenty.switch_grass": "Switchgrass",
+  "block.mobsnplenty.clover_patch": "Clover Patch",
+
+  "item.mobsnplenty.crab_spawn_egg": "Crab Spawn Egg",
+
+  "itemGroup.mobsnplenty.mnp_tabs": "Mobs N' Plenty"
 }

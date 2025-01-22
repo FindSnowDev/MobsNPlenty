@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "mobsnplenty:block/luci_sapling"
+  }
+}

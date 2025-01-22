@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mobsnplenty:block/stripped_luci_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "mobsnplenty:block/stripped_luci_wood"
+    },
+    "axis=z": {
+      "model": "mobsnplenty:block/stripped_luci_wood",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mobsnplenty:block/luci_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "mobsnplenty:block/luci_log"
+    },
+    "axis=z": {
+      "model": "mobsnplenty:block/luci_log_horizontal",
+      "x": 90
+    }
+  }
+}

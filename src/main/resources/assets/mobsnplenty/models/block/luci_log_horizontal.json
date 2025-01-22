@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "mobsnplenty:block/luci_log_top",
+    "side": "mobsnplenty:block/luci_log"
+  }
+}
