@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#e:is_beach",
+  "spawners": [
+    {
+      "type": "mobsnplenty:crab",
+      "weight": 10,
+      "minCount": 4,
+      "maxCount": 7
+    }
+  ]
+}

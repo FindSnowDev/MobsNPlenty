@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#mobsnplenty:content/has_clover",
+  "features": [
+    "mobsnplenty:clover_patch"
+  ],
+  "step": "vegetal_decoration"
+}

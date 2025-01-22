@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "mobsnplenty:block/clover_patch"
+      },
+      {
+        "model": "mobsnplenty:block/clover_patch",
+        "y": 90
+      },
+      {
+        "model": "mobsnplenty:block/clover_patch",
+        "y": 180
+      },
+      {
+        "model": "mobsnplenty:block/clover_patch",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#mobsnplenty:content/has_flaurelle",
+  "features": [
+    "mobsnplenty:flaurelle_patch"
+  ],
+  "step": "vegetal_decoration"
+}
