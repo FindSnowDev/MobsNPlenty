@@ -1,0 +1,60 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:cutout",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "mobsnplenty:block/clover_patch",
+		"particle": "mobsnplenty:item/clover_patch"
+	},
+	"elements": [
+		{
+			"from": [0.8, 0, 8],
+			"to": [15.2, 4, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 11, 8.5, 16], "texture": "#0"},
+				"south": {"uv": [8.5, 11, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 0, 0.8],
+			"to": [8, 4, 15.2],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"east": {"uv": [7.5, 14, 16, 16], "texture": "#0"},
+				"west": {"uv": [7.5, 14, 16, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0.8, 0, 8],
+			"to": [15.2, 4, 8],
+			"shade": false,
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 8, 8], "rescale": true},
+			"faces": {
+				"north": {"uv": [0, 11, 8.5, 16], "texture": "#0"},
+				"south": {"uv": [16, 12, 0, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 4, 0],
+			"to": [16, 4, 16],
+			"shade": false,
+			"faces": {
+				"up": {"uv": [16, 8, 8, 0], "texture": "#0"},
+				"down": {"uv": [16, 0, 8, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 2, 0],
+			"to": [16, 2, 16],
+			"shade": false,
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, -2, 0]},
+			"faces": {
+				"up": {"uv": [0, 12, 8, 4], "texture": "#0"},
+				"down": {"uv": [0, 4, 8, 12], "texture": "#0"}
+			}
+		}
+	]
+}
