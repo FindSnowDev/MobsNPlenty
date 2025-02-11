@@ -34,6 +34,7 @@ public class MNPCreativeTab {
 						output.accept(MNPBlocks.CLOVER_PATCH);
 
 						output.accept(MNPItems.CRAB_SPAWN_EGG);
+
 						output.accept(MNPItems.CRAB_CLAW);
 					})
 					.build());

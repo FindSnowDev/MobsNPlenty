@@ -75,13 +75,11 @@
       "minecraft:glow_lichen",
       "mobsnplenty:trees_luci_forest",
       "minecraft:flower_default",
-      "minecraft:patch_grass_forest",
+      "mobsnplenty:patch_grass_luci",
       "mobsnplenty:fallen_log_luci",
       "minecraft:brown_mushroom_taiga",
       "minecraft:red_mushroom_taiga",
-      "minecraft:patch_sugar_cane",
-      "minecraft:patch_pumpkin",
-      "minecraft:patch_berry_common"
+      "minecraft:patch_sugar_cane"
     ],
     [
       "minecraft:freeze_top_layer"

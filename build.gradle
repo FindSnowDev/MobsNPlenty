@@ -18,13 +18,6 @@ repositories {
         name = 'TerraformersMC'
         url = 'https://maven.terraformersmc.com/'
     }
-    maven {
-        name = 'GeckoLib'
-        url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
-        content {
-            includeGroup("software.bernie.geckolib")
-        }
-    }
 }
 
 base {
@@ -112,7 +105,6 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 dependencies {
     implementation("com.terraformersmc:biolith-neoforge:${project.biolith_version}")
-    implementation "software.bernie.geckolib:geckolib-neoforge-${minecraft_version}:${geckolib_version}"
     implementation("foundry.veil:veil-neoforge-${project.minecraft_version}:${project.veil_version}") {exclude group: "maven.modrinth"}
 }
 
