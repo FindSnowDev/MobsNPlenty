@@ -1,6 +1,8 @@
 {
   "biome.mobsnplenty.luci_forest": "Luci Forest",
 
+  "sounds.mobsnplenty.chomper_on": "Chomper Crushing",
+
   "block.mobsnplenty.luci_planks": "Luci Planks",
   "block.mobsnplenty.luci_log": "Luci Log",
   "block.mobsnplenty.stripped_luci_log": "Stripped Luci Log",
@@ -12,12 +14,23 @@
   "block.mobsnplenty.luci_shelf_fungi": "Luci Shelf Fungi",
   "block.mobsnplenty.alkanet": "Alkanet",
   "block.mobsnplenty.blue_flaurelle": "Blue Flaurelle",
+  "block.mobsnplenty.blue_lupine": "Blue Lupine",
+  "block.mobsnplenty.purple_lupine": "Purple Lupine",
   "block.mobsnplenty.purple_flaurelle": "Purple Flaurelle",
+  "block.mobsnplenty.pink_flaurelle": "Pink Flaurelle",
+  "block.mobsnplenty.pink_lupine": "Pink Lupine",
+  "block.mobsnplenty.white_lupine": "White Lupine",
+  "block.mobsnplenty.white_flaurelle": "White Flaurelle",
   "block.mobsnplenty.red_switch_grass": "Red Switchgrass",
   "block.mobsnplenty.switch_grass": "Switchgrass",
   "block.mobsnplenty.clover_patch": "Clover Patch",
+  "block.mobsnplenty.venus_flytrap": "Venus Flytrap",
+  "block.mobsnplenty.chomper": "Chomper",
+
+  "blockentity.mobsnplenty.chomper": "Chomper",
 
   "item.mobsnplenty.crab_spawn_egg": "Crab Spawn Egg",
+  "item.mobsnplenty.shark_spawn_egg": "Shark Spawn Egg",
   "item.mobsnplenty.bunny_spawn_egg": "Bunny Spawn Egg",
 
   "item.mobsnplenty.crab_claw": "Crab Claw",

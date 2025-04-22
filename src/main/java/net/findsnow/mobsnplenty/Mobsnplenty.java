@@ -2,8 +2,13 @@ package net.findsnow.mobsnplenty;
 
 import com.mojang.logging.LogUtils;
 import net.findsnow.mobsnplenty.client.renderer.CrabRenderer;
+import net.findsnow.mobsnplenty.client.renderer.SharkRenderer;
+import net.findsnow.mobsnplenty.client.screen.MNPChomperScreen;
 import net.findsnow.mobsnplenty.common.registry.*;
 import net.findsnow.mobsnplenty.common.worldgen.generation.MNPBiomePlacements;
+import net.minecraft.client.particle.AshParticle;
+import net.minecraft.client.particle.FlameParticle;
+import net.minecraft.client.particle.NoteParticle;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.resources.ResourceLocation;
@@ -18,6 +23,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
@@ -28,14 +35,11 @@ public class Mobsnplenty {
 	public static final String MOD_ID = "mobsnplenty";
 	private static final Logger LOGGER = LogUtils.getLogger();
 
-	public static ResourceLocation id(String name) {
-		return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
-	}
-
 	public Mobsnplenty(IEventBus modEventBus, ModContainer modContainer) {
 		modEventBus.addListener(this::commonSetup);
 
 		MNPBlocks.register(modEventBus);
+		MNPBlockEntities.register(modEventBus);
 		MNPItems.register(modEventBus);
 		MNPCreativeTab.register(modEventBus);
 		MNPFeatures.register(modEventBus);
@@ -43,7 +47,9 @@ public class Mobsnplenty {
 		MNPBiomePlacements.register();
 		MNPFoliagePlacers.register(modEventBus);
 		MNPEntities.register(modEventBus);
-
+		MNPMenuTypes.register(modEventBus);
+		MNPParticleTypes.register(modEventBus);
+		MNPSounds.register(modEventBus);
 
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::addCreative);
@@ -71,6 +77,7 @@ public class Mobsnplenty {
 		@SubscribeEvent
 		public static void onClientSetup(FMLClientSetupEvent event) {
 			EntityRenderers.register(MNPEntities.CRAB.get(), CrabRenderer::new);
+			EntityRenderers.register(MNPEntities.SHARK.get(), SharkRenderer::new);
 		}
 
 		@SubscribeEvent
@@ -83,6 +90,11 @@ public class Mobsnplenty {
 		@SubscribeEvent
 		public static void registerColoredItems(RegisterColorHandlersEvent.Item event) {
 
+		}
+
+		@SubscribeEvent
+		public static void registerScreens(RegisterMenuScreensEvent event) {
+			event.register(MNPMenuTypes.CHOMPER_MENU.get(), MNPChomperScreen::new);
 		}
 	}
 }

@@ -50,33 +50,12 @@ public class Crab extends Animal {
 	public final AnimationState pinchAnimationState = new AnimationState();
 
 	private long inStateTicks = 0;
+	private int wavingTicks = 0;
+	private boolean shouldStopWaving = false;
 
 	public Crab(EntityType<? extends Animal> entityType, Level level) {
 		super(entityType, level);
-		this.lookControl = new LookControl(this) {
-			private Optional<Float> getWantedRot() {
-				double d0 = this.wantedX - this.mob.getX();
-				double d1 = this.wantedY - this.mob.getY();
-				return (Math.abs(d1) <= 9.999999747378752E-6D && Math.abs(d0) <=  9.999999747378752E-6D) ?
-						Optional.empty() : Optional.of((float) (Mth.atan2(d1, d0) * 57.2957763671875D) + 180.0F);
-			}
-
-			@Override
-			public void tick() {
-				if (!Crab.this.isClimbing()) {
-					if (isLookingAtTarget())
-						this.mob.setXRot(0.0F);
-					if (this.lookAtCooldown > 0) {
-						this.lookAtCooldown --;
-						getWantedRot().ifPresent(rot -> this.mob.yRotO = rotateTowards(this.mob.yRotO, rot, this.yMaxRotSpeed));
-						getWantedRot().ifPresent(xRot -> this.mob.setXRot(rotateTowards(this.mob.getXRot(), xRot, this.xMaxRotAngle)));
-					} else {
-						this.mob.yRotO = rotateTowards(this.mob.yRotO, this.mob.yBodyRot, 10.0F);
-					}
-					this.clampHeadRotationToBody();
-				}
-			}
-		};
+		this.lookControl = new LookControl(this);
 		this.moveControl = new MoveControl(this);
 		this.jumpControl = new JumpControl(this);
 	}
@@ -114,13 +93,16 @@ public class Crab extends Animal {
 		super.addAdditionalSaveData(compound);
 		compound.putInt("Variant", this.getVariantType());
 		compound.putString("AnimationState", getCurrentState().getSerializedName());
+		compound.putBoolean("IsWaving", this.isWaving());
+		compound.putByte("Climbing", this.entityData.get(CLIMBING));
 	}
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag compound) {
 		super.readAdditionalSaveData(compound);
-		this.entityData.set(VARIANT, compound.getInt("Variant"));
 		setCurrentState(CrabAnimationState.valueOf(compound.getString("AnimationState")));
+		this.entityData.set(VARIANT, compound.getInt("Variant"));
+		this.entityData.set(CLIMBING, compound.getByte("Climbing"));
 	}
 
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
@@ -175,6 +157,14 @@ public class Crab extends Animal {
 			}
 		}
 
+		if (shouldStopWaving) {
+			wavingTicks++;
+			if (wavingTicks >= 40) {
+				stopWaving();
+				shouldStopWaving = false;
+			}
+		}
+
 		if (this.level().isClientSide()) {
 			setupAnimationStates();
 		}
@@ -211,6 +201,10 @@ public class Crab extends Animal {
 		this.inStateTicks = 0L;
 	}
 
+	@Override
+	protected int calculateFallDamage(float fallDistance, float damageMultiplier) {
+		return super.calculateFallDamage(fallDistance, damageMultiplier) - 10;
+	}
 
 	@Override
 	public float maxUpStep() {
@@ -277,10 +271,13 @@ public class Crab extends Animal {
 		this.setWaving(true);
 		setCurrentState(CrabAnimationState.WAVING);
 		this.inStateTicks = 0L;
-		this.level().getServer().tell(new TickTask(
-				this.level().getServer().getTickCount() + 40,
-				this::stopWaving
-		));
+		this.wavingTicks = 0;
+		this.shouldStopWaving = true;
+	}
+
+	@Override
+	public boolean isPersistenceRequired() {
+		return true;
 	}
 
 	private void stopWaving() {

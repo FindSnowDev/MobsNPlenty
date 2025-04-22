@@ -1,7 +1,10 @@
 package net.findsnow.mobsnplenty.common.registry;
 
 import net.findsnow.mobsnplenty.Mobsnplenty;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SpawnEggItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -32,6 +35,11 @@ public class MNPItems {
 	// MNP Spawn Eggs
 	public static final DeferredItem<Item> CRAB_SPAWN_EGG = ITEMS.register("crab_spawn_egg",
 			() -> new DeferredSpawnEggItem(MNPEntities.CRAB, 0x561414, 0x9f2922, new Item.Properties()));
+
+	public static final DeferredItem<Item> SHARK_SPAWN_EGG = ITEMS.register("shark_spawn_egg",
+			() -> new DeferredSpawnEggItem(MNPEntities.SHARK, 0x561414, 0x9f2922, new Item.Properties()));
+
+
 
 
 

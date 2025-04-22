@@ -10,14 +10,14 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-public class CrabRenderer extends MobRenderer<Crab, CrabModel> {
+public class CrabRenderer extends MobRenderer<Crab,CrabModel> {
 	public CrabRenderer(EntityRendererProvider.Context context) {
-		super(context, new CrabModel(context.bakeLayer(MNPModelLayers.CRAB)), 0.5f);
+		super(context, new CrabModel(context.bakeLayer(MNPModelLayers.CRAB)), 0.5F);
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(Crab entity) {
-		return switch (entity.getVariant()) {
+	public ResourceLocation getTextureLocation(Crab crab) {
+		return switch (crab.getVariant()) {
 			case 1 -> ResourceLocation.fromNamespaceAndPath(Mobsnplenty.MOD_ID, "textures/entity/crab/crab_green.png");
 			case 2 -> ResourceLocation.fromNamespaceAndPath(Mobsnplenty.MOD_ID, "textures/entity/crab/crab_blue.png");
 			default -> ResourceLocation.fromNamespaceAndPath(Mobsnplenty.MOD_ID, "textures/entity/crab/crab.png");
@@ -27,8 +27,9 @@ public class CrabRenderer extends MobRenderer<Crab, CrabModel> {
 	@Override
 	public void render(Crab entity, float entityYaw, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int packedLight) {
 		if (entity.isBaby()) {
-			poseStack.scale(0.5f, 0.5f, 0.5f);
+			poseStack.scale(0.6f, 0.6f, 0.6f);
 		}
 		super.render(entity, entityYaw, partialTicks, poseStack, buffer, packedLight);
 	}
 }
+

@@ -18,6 +18,8 @@ public class MNPCreativeTab {
 					.title(Component.translatable("itemGroup.mobsnplenty.mnp_tabs"))
 					.icon(() -> new ItemStack(MNPBlocks.LUCI_PLANKS.get().asItem()))
 					.displayItems((itemDisplayParameters, output) -> {
+
+						output.accept(MNPBlocks.CHOMPER);
 						output.accept(MNPBlocks.LUCI_PLANKS);
 						output.accept(MNPBlocks.LUCI_LOG);
 						output.accept(MNPBlocks.STRIPPED_LUCI_LOG);
@@ -26,14 +28,23 @@ public class MNPCreativeTab {
 						output.accept(MNPBlocks.LUCI_LEAVES);
 						output.accept(MNPBlocks.LUCI_SAPLING);
 						output.accept(MNPBlocks.LUCI_SHELF_FUNGI);
+
 						output.accept(MNPBlocks.ALKANET);
 						output.accept(MNPBlocks.BLUE_FLAURELLE);
+						output.accept(MNPBlocks.BLUE_LUPINE);
 						output.accept(MNPBlocks.PURPLE_FLAURELLE);
+						output.accept(MNPBlocks.PURPLE_LUPINE);
+						output.accept(MNPBlocks.PINK_FLAURELLE);
+						output.accept(MNPBlocks.PINK_LUPINE);
+						output.accept(MNPBlocks.WHITE_FLAURELLE);
+						output.accept(MNPBlocks.WHITE_LUPINE);
 						output.accept(MNPBlocks.RED_SWITCH_GRASS);
 						output.accept(MNPBlocks.SWITCH_GRASS);
 						output.accept(MNPBlocks.CLOVER_PATCH);
+						output.accept(MNPBlocks.VENUS_FLYTRAP);
 
 						output.accept(MNPItems.CRAB_SPAWN_EGG);
+						output.accept(MNPItems.SHARK_SPAWN_EGG);
 
 						output.accept(MNPItems.CRAB_CLAW);
 					})

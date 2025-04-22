@@ -10,7 +10,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class MNPBushBlock extends BushBlock {
-	public static final MapCodec<MNPBushBlock> CODEC = simpleCodec(MNPBushBlock::new);
+	public static final MapCodec<BushBlock> CODEC = simpleCodec(MNPBushBlock::new);
 
 	protected static final VoxelShape SHAPE = Block.box(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
 
@@ -18,8 +18,9 @@ public class MNPBushBlock extends BushBlock {
 		super(properties);
 	}
 
+
 	@Override
-	protected MapCodec<? extends BushBlock> codec() {
+	public MapCodec<BushBlock> codec() {
 		return CODEC;
 	}
 

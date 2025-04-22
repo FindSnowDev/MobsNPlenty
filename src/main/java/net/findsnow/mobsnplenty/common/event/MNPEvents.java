@@ -2,7 +2,9 @@ package net.findsnow.mobsnplenty.common.event;
 
 import net.findsnow.mobsnplenty.Mobsnplenty;
 import net.findsnow.mobsnplenty.client.model.CrabModel;
+import net.findsnow.mobsnplenty.client.model.SharkModel;
 import net.findsnow.mobsnplenty.common.entity.Crab;
+import net.findsnow.mobsnplenty.common.entity.Shark;
 import net.findsnow.mobsnplenty.common.registry.MNPEntities;
 import net.findsnow.mobsnplenty.common.registry.MNPModelLayers;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,10 +18,12 @@ public class MNPEvents {
 	@SubscribeEvent
 	public static void registerAttributes(EntityAttributeCreationEvent event) {
 		event.put(MNPEntities.CRAB.get(), Crab.setAttributes());
+		event.put(MNPEntities.SHARK.get(), Shark.setAttributes());
 	}
 
 	@SubscribeEvent
 	public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
 		event.registerLayerDefinition(MNPModelLayers.CRAB, CrabModel::createBodyLayer);
+		event.registerLayerDefinition(MNPModelLayers.SHARK, SharkModel::createBodyLayer);
 	}
 }

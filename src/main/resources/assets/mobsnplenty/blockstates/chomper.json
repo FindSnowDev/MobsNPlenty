@@ -1,0 +1,34 @@
+{
+	"variants": {
+		"facing=east,chomping=false": {
+			"model": "mobsnplenty:block/chomper",
+			"y": 90
+		},
+		"facing=east,chomping=true": {
+			"model": "mobsnplenty:block/chomper_on",
+			"y": 90
+		},
+		"facing=north,chomping=false": {
+			"model": "mobsnplenty:block/chomper"
+		},
+		"facing=north,chomping=true": {
+			"model": "mobsnplenty:block/chomper_on"
+		},
+		"facing=south,chomping=false": {
+			"model": "mobsnplenty:block/chomper",
+			"y": 180
+		},
+		"facing=south,chomping=true": {
+			"model": "mobsnplenty:block/chomper_on",
+			"y": 180
+		},
+		"facing=west,chomping=false": {
+			"model": "mobsnplenty:block/chomper",
+			"y": 270
+		},
+		"facing=west,chomping=true": {
+			"model": "mobsnplenty:block/chomper_on",
+			"y": 270
+		}
+	}
+}

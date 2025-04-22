@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "mobsnplenty:item/luci_shelf_fungi"
-  }
+  "parent": "mobsnplenty:block/luci_shelf_fungi_1"
 }

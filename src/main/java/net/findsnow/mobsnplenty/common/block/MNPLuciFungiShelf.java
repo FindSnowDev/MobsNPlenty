@@ -131,13 +131,20 @@ public class MNPLuciFungiShelf extends FaceAttachedHorizontalDirectionalBlock im
 		if (insideState.is(this)) {
 			return insideState.setValue(STAGE, Math.min(MAX_STAGE, insideState.getValue(STAGE) + 1));
 		}
+
 		for (Direction direction : context.getNearestLookingDirections()) {
 			BlockState state;
 			if (direction.getAxis() == Direction.Axis.Y) {
-				state = this.defaultBlockState().setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR).setValue(FACING, context.getHorizontalDirection());
+				state = this.defaultBlockState()
+						.setValue(FACE, direction == Direction.UP ? AttachFace.CEILING : AttachFace.FLOOR)
+						.setValue(FACING, context.getHorizontalDirection());
 			} else {
-				state = this.defaultBlockState().setValue(FACE, AttachFace.WALL).setValue(FACING, direction.getOpposite());
+				// For wall placement
+				state = this.defaultBlockState()
+						.setValue(FACE, AttachFace.WALL)
+						.setValue(FACING, direction.getOpposite());  // This is correct
 			}
+
 			if (state.canSurvive(context.getLevel(), context.getClickedPos())) {
 				return state;
 			}

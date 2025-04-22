@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "mobsnplenty:block/blue_lupine_bottom"
+    },
+    "half=upper": {
+      "model": "mobsnplenty:block/blue_lupine_top"
+    }
+  }
+}

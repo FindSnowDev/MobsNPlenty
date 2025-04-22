@@ -1,7 +1,5 @@
 package net.findsnow.mobsnplenty.client.model;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.findsnow.mobsnplenty.client.animations.CrabAnimations;
 import net.findsnow.mobsnplenty.common.entity.Crab;
 import net.minecraft.client.model.HierarchicalModel;
@@ -11,9 +9,6 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CrabModel extends HierarchicalModel<Crab> {
 	private final ModelPart bone;
 	private final ModelPart head;
@@ -22,7 +17,6 @@ public class CrabModel extends HierarchicalModel<Crab> {
 		this.bone = root.getChild("bone");
 		this.head = bone.getChild("crab").getChild("main").getChild("head");
 	}
-
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
@@ -98,6 +92,18 @@ public class CrabModel extends HierarchicalModel<Crab> {
 		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
+	private void applyHeadRotation(float headYaw, float headPitch) {
+		headYaw = Mth.clamp(headYaw, -22f, 25f);
+		headPitch = Mth.clamp(headPitch, -30f, 30f);
+		this.head.yRot = headYaw * ((float) Math.PI / 180f);
+		this.head.xRot = headPitch * ((float) Math.PI / 180f);
+	}
+
+	@Override
+	public ModelPart root() {
+		return bone;
+	}
+
 	@Override
 	public void setupAnim(Crab entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
@@ -126,26 +132,10 @@ public class CrabModel extends HierarchicalModel<Crab> {
 			this.bone.xRot = 0;
 			this.bone.zRot = 0;
 		}
+
 		this.animateWalk(CrabAnimations.CRAB_WALK, limbSwing, limbSwingAmount, 9.0F, 100.0F);
 		this.animate(entity.idleAnimationState, CrabAnimations.CRAB_IDLE, ageInTicks, 1F);
 		this.animate(entity.waveAnimationState, CrabAnimations.CRAB_WAVE, ageInTicks, 1F);
 		this.animate(entity.pinchAnimationState, CrabAnimations.CRAB_PINCH, ageInTicks, 1F);
-	}
-
-	private void applyHeadRotation(float headYaw, float headPitch) {
-		headYaw = Mth.clamp(headYaw, -22f, 25f);
-		headPitch = Mth.clamp(headPitch, -30f, 30f);
-		this.head.yRot = headYaw * ((float) Math.PI / 180f);
-		this.head.xRot = headPitch * ((float) Math.PI / 180f);
-	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, int color) {
-		bone.render(poseStack, vertexConsumer, packedLight, packedOverlay, color);
-	}
-
-	@Override
-	public ModelPart root() {
-		return bone;
 	}
 }
